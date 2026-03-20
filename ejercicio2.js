@@ -1,24 +1,18 @@
-let continuar;
+let continuar = true;
 
-do {
-    //  le pedimos el numero al usuario
-    let numero = parseInt(prompt("¿De qué número deseas ver la tabla de multiplicar?"));
+while (continuar) {
+    let numero = parseInt(prompt("Ingresa un número para ver su tabla de multiplicar:"));
+    let resultado = "Tabla del " + numero + ":\n";
 
-    if (!isNaN(numero)) {
-        console.log(`--- Tabla del ${numero} ---`);
-        
-        //  iniciamos el ciclo
-        for (let i = 1; i <= 12; i++) {
-            let resultado = numero * i;
-            console.log(`${numero} x ${i} = ${resultado}`);
-        }
-    } else {
-        console.log("Por favor, ingresa un número válido.");
+    for (let i = 1; i <= 12; i++) {
+        resultado += numero + " x " + i + " = " + (numero * i) + "\n";
     }
 
-    //  Preguntamos si desea realizar otra consulta
-    continuar = prompt("¿Deseas consultar otra tabla? (si/no)").toLowerCase();
+    alert(resultado);
 
-} while (continuar === "si" || continuar === "s");
+    let respuesta = prompt("¿Quieres consultar otra tabla? (si/no)");
 
-console.log("Gracias por usar el programa.");
+    if (respuesta.toLowerCase() !== "si") {
+        continuar = false;
+    }
+}

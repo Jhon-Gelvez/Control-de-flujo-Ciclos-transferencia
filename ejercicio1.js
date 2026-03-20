@@ -1,19 +1,18 @@
+let resultado = "Números primos del 1 al 50:\n";
 
-console.log("Números primos entre 1 y 50:");
-
-for (let i = 2; i <= 50; i++) {
+for (let num = 2; num <= 50; num++) {
     let esPrimo = true;
 
-    // Un número es primo si solo es divisible por 1 y por sí mismo.
-    // Verificamos si tiene algún divisor entre 2
-    for (let j = 2; j <= Math.sqrt(i); j++) {
-        if (i % j === 0) {
-            esPrimo = false; // Se encontró un divisor, no es primo
-            break; 
+    for (let i = 2; i < num; i++) {
+        if (num % i === 0) {
+            esPrimo = false;
+            break;
         }
     }
 
     if (esPrimo) {
-        console.log(i);
+        resultado += num + "\n";
     }
 }
+
+alert(resultado);
